@@ -1,5 +1,5 @@
-import HomeInicial from "@/cases/home/HomeInicial"
-import ListarProdutos from "@/cases/produto/Listarprodutos"
+import HomeInicial from "@/cases/home/components/HomeInicial"
+import GetProduto from "@/cases/products/components/GetProduto"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Route, Routes } from "react-router-dom"
 
@@ -14,7 +14,7 @@ function App() {
 
         <Route path="/" element={<HomeInicial />} />
 
-        <Route path="/produto/:id" element={<ListarProdutos />}/>
+        <Route path="/produto/:id" element={<GetProduto />}/>
 
       </Routes>
 
