@@ -1,9 +1,9 @@
 import { useCategory } from "@/cases/categories/hooks/use-category";
 import { Spinner } from "@/components/ui/spinner";
-import AvatarIcon from "../../../../components/layout/AvatarIcon";
-import Logo from "../../../../components/layout/Logo";
 import HeaderNavigation from "@/components/layout/HeaderNavigation";
-import { ModeToggle } from "@/components/mode-toogle";
+import { ModeToggle } from "@/components/layout/mode-toogle";
+import Logo from "./Logo";
+import AvatarIcon from "./AvatarIcon";
 
 
 export default function Header () {

@@ -1,12 +1,9 @@
-import ListCategory from "@/cases/categories/components/listCategories";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
+import ListCategories from "@/cases/categories/components/listCategories";
 
-export default function HomeInicial () {
+export default function Home () {
 
     return(
         <>
-            <Header />
             <main>
                 <div className="w-full my-10 flex justify-center gap-2">
                     <div>
@@ -23,10 +20,9 @@ export default function HomeInicial () {
                 <div className="
                 max-w-9/10 w-fit m-auto
                 ">
-                    <ListCategory />
+                    <ListCategories />
                 </div>
             </main>
-            <Footer />
         </>
     )
 }

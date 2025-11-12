@@ -7,3 +7,10 @@ export function useCategory() {
         queryFn: () => categoryService.findAll()
     })
 }
+
+export function useCategoryById(id: string) {
+    return useQuery({
+        queryKey: ['category'],
+        queryFn: () => categoryService.findById(id)
+    })
+}

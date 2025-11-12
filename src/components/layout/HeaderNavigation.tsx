@@ -51,14 +51,13 @@ export default function HeaderNavigation({categorias}: HeaderNavigation) {
                             <ListItem
                             key={component.id}
                             title={component.name}
-                            href="#"
+                            href={`/categoria/${component.id}`}
                             >
                             </ListItem>
                         ))}
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-
 
             </NavigationMenuList>
         </NavigationMenu>

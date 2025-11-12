@@ -1,10 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useCategory } from "../hooks/use-category"
 import { Spinner } from "@/components/ui/spinner"
-import ListarProdutos from "@/cases/products/components/Listarprodutos"
+import ListProducts from "@/cases/products/components/ListProducts"
 
 
-export default function ListCategory () {
+export default function ListCategories () {
     const {
         data: categorias,
         isLoading,
@@ -29,7 +29,7 @@ export default function ListCategory () {
                         </TabsList>
                             {categorias?.map((category) => (
                                 <TabsContent key={category.name} value={category.name}>
-                                    <ListarProdutos category={category}/>
+                                    <ListProducts category={category}/>
                                 </TabsContent>
                             ))}
                     </Tabs>
