@@ -2,7 +2,6 @@ import type { categoryDTO } from "@/cases/categories/DTOS/category.dto"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "../ui/navigation-menu"
 import ListItem from "./linkItem"
 import { Badge } from "../ui/badge"
-
 interface HeaderNavigation {
     categorias: categoryDTO[]
 }
@@ -59,6 +58,7 @@ export default function HeaderNavigation({categorias}: HeaderNavigation) {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
+
 
             </NavigationMenuList>
         </NavigationMenu>

@@ -3,6 +3,7 @@ import { Spinner } from "@/components/ui/spinner";
 import AvatarIcon from "../../../../components/layout/AvatarIcon";
 import Logo from "../../../../components/layout/Logo";
 import HeaderNavigation from "@/components/layout/HeaderNavigation";
+import { ModeToggle } from "@/components/mode-toogle";
 
 
 export default function Header () {
@@ -25,7 +26,11 @@ export default function Header () {
 
                         <HeaderNavigation categorias={categorias}/>
 
-                    <AvatarIcon />
+                    <div className="flex gap-8">
+                        <AvatarIcon />
+
+                        <ModeToggle />
+                    </div>
                 </header>
             }
         </>

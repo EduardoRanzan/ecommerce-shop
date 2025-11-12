@@ -9,8 +9,8 @@ export default function HomeInicial () {
             <Header />
             <main>
                 <div className="w-full my-10 flex justify-center gap-2">
-                    <div className="border-2">
-                        <img src="../../../public/images/manutencao.jpg" alt="manutencao" className="
+                    <div>
+                        <img src="/images/manutencao.jpg" alt="manutencao" className="
                         w-xl m-auto
                         "/>
                     </div>
