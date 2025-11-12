@@ -2,11 +2,13 @@ import type { categoryDTO } from "@/cases/categories/DTOS/category.dto"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "../ui/navigation-menu"
 import ListItem from "./linkItem"
 import { Badge } from "../ui/badge"
+import Loading from "./Loading"
 interface HeaderNavigation {
     categorias: categoryDTO[]
+    isLoading?: boolean
 }
 
-export default function HeaderNavigation({categorias}: HeaderNavigation) {
+export default function HeaderNavigation({categorias, isLoading}: HeaderNavigation) {
     return (
         <NavigationMenu>
             <NavigationMenuList className="space-x-4">
@@ -46,16 +48,19 @@ export default function HeaderNavigation({categorias}: HeaderNavigation) {
                         <div className="mb-3 text-shadow-white font-semibold">
                             <Badge variant="default">Qual categoria você deseja?</Badge>
                         </div>
-                        <ul className="grid gap-2 grid-cols-2 min-w-2xs">
-                        {categorias?.map((component) => (
-                            <ListItem
-                            key={component.id}
-                            title={component.name}
-                            href={`/categoria/${component.id}`}
-                            >
-                            </ListItem>
-                        ))}
-                        </ul>
+                            <ul className="grid gap-2 grid-cols-2 min-w-2xs">
+                                {isLoading ? (
+                                    <Loading />
+                                ) : (
+                                    categorias?.map((component) => (
+                                    <ListItem
+                                        key={component.id}
+                                        title={component.name}
+                                        href={`/categoria/${component.id}`}
+                                    />
+                                    ))
+                                )}
+                            </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
 

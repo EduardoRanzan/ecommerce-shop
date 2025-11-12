@@ -1,5 +1,4 @@
 import { useCategory } from "@/cases/categories/hooks/use-category";
-import { Spinner } from "@/components/ui/spinner";
 import HeaderNavigation from "@/components/layout/HeaderNavigation";
 import { ModeToggle } from "@/components/layout/mode-toogle";
 import Logo from "./Logo";
@@ -16,15 +15,11 @@ export default function Header () {
     return(
         <>
             {
-                isLoading && 
-                <>Carregando...<Spinner /></>
-            }
-            {
                 categorias && 
                 <header className="flex items-center justify-between w-full px-6 py-3 border-b bg-background">
                     <Logo />
 
-                        <HeaderNavigation categorias={categorias}/>
+                    <HeaderNavigation categorias={categorias} isLoading={isLoading}/>
 
                     <div className="flex gap-8">
                         <AvatarIcon />

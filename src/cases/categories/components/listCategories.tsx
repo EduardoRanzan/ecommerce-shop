@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useCategory } from "../hooks/use-category"
-import { Spinner } from "@/components/ui/spinner"
 import ListProducts from "@/cases/products/components/ListProducts"
+import Loading from "@/components/layout/Loading"
 
 
 export default function ListCategories () {
@@ -15,12 +15,12 @@ export default function ListCategories () {
         <>
             {
                 isLoading && 
-                <>Carregando...<Spinner /></>
+                <Loading></Loading>
             }
             { !isLoading && categorias?.length && !error &&
                 <div>
                     <Tabs defaultValue={categorias![0].name} className="flex flex-wrap">
-                        <TabsList className="flex flex-wrap gap-2 w-fit ml-auto">
+                        <TabsList className="flex flex-wrap gap-4 w-fit ml-auto shadow-md mb-4">
                             {categorias?.map((category) => (
                                 <TabsTrigger key={category.name} value={category.name}>
                                     {category.name}
