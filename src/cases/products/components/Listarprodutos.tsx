@@ -14,26 +14,30 @@ export default function ListarProdutos ({category: {id}}: ListarProdutosProps) {
     } = useProductCategory(id!)
 
     return(
-        <div className="flex flex-wrap gap-4 justify-start">
+        <div className="flex flex-wrap gap-4 justify-center">
             {products?.map((product) => (
                 <Card
-                key={product.id}
-                className="hover:shadow-lg transition-shadow duration-200 min-w-2xs max-w-2xs"
+                    key={product.id}
+                    className="hover:shadow-lg transition-shadow duration-200 min-w-2xs max-w-2xs"
                 >
-                <CardHeader className="flex justify-between">
-                    <CardTitle className="text-lg truncate">{product.name}</CardTitle>
-                    <Badge variant="default">{product.brand?.name}</Badge>
-                </CardHeader>
+                    <CardHeader className="flex justify-between">
+                        <CardTitle className="text-lg truncate">{product.name}</CardTitle>
+                        <Badge variant="default" className="px-3">{product.brand?.name}</Badge>
+                    </CardHeader>
 
-                <CardContent>
-                    <p className="text-sm text-muted-foreground line-clamp-3">
-                    {product.description || "Sem descrição"}
-                    </p>
-                </CardContent>
+                    <CardContent className="max-w-full h-48 bg-gray-300">
+                        {/* ibagens */}
+                    </CardContent>
 
-                <CardFooter className="flex justify-between items-center">
-                    <span className="font-semibold">R$ {product.price?.toFixed(2)}</span>
-                </CardFooter>
+                    <CardContent>
+                        <p className="text-sm text-muted-foreground line-clamp-3">
+                        {product.description || "Sem descrição"}
+                        </p>
+                    </CardContent>
+
+                    <CardFooter className="justify-end">
+                        <span className="font-semibold">R$ {product.price?.toFixed(2)}</span>
+                    </CardFooter>
                 </Card>
             ))}
         </div>

@@ -4,7 +4,7 @@ import type { ProductDTO } from "../DTOS/product.dto";
 const endPoint = 'products';
 
 export const productService = {
-    async findAll () {
+    async findAll (): Promise<ProductDTO[]> {
         const products = await api.get(endPoint);
 
         return products.data;
