@@ -14,3 +14,10 @@ export function useProduct() {
         queryFn: () => productService.findAll()
     })
 }
+
+export function useProductById(id: string) {
+    return useQuery({
+        queryKey: ['productById'],
+        queryFn: () => productService.findProductById(id)
+    })
+}

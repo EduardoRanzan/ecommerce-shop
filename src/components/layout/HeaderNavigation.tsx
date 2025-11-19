@@ -46,7 +46,7 @@ export default function HeaderNavigation({categorias, isLoading}: HeaderNavigati
                     <NavigationMenuTrigger>Produtos</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <div className="mb-3 text-shadow-white font-semibold">
-                            <Badge variant="default">Qual categoria você deseja?</Badge>
+                            <Badge variant="default">Que categoria de produto você procura?</Badge>
                         </div>
                             <ul className="grid gap-2 grid-cols-2 min-w-2xs">
                                 {isLoading ? (

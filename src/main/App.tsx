@@ -1,3 +1,5 @@
+import { CartProvider } from "@/cases/carrinho/components/CartProvider"
+import LayoutCarrinho from "@/cases/carrinho/components/LayoutCarrinho"
 import GetCategory from "@/cases/categories/components/GetCategy"
 import HomeInicial from "@/cases/home/components/Home"
 import GetProduct from "@/cases/products/components/GetProduct"
@@ -14,20 +16,25 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+        <CartProvider>
 
-      <Header />
+          <Header />
 
-      <Routes>
+          <Routes>
 
-        <Route path="/" element={<HomeInicial />} />
+            <Route path="/" element={<HomeInicial />} />
 
-        <Route path="/produto/:id" element={<GetProduct />}/>
+            <Route path="/produto/:id" element={<GetProduct />}/>
 
-        <Route path="/categoria/:id" element={<GetCategory />}/>
+            <Route path="/categoria/:id" element={<GetCategory />}/>
 
-      </Routes>
-      
-      <Footer />
+            <Route path="/carrinho" element={<LayoutCarrinho />}/>
+
+          </Routes>
+          
+          <Footer />
+          
+        </CartProvider>
 
       </ThemeProvider>
     </QueryClientProvider>

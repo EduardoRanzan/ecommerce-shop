@@ -23,11 +23,11 @@ export default function ListProducts ({category: {id}}: ListarProdutosProps) {
                 <Loading />
             }
             { !isLoading && !error && products &&
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-left">
                 {products?.map((product) => (
                     <a href={`/produto/${product.id}`} key={product.id}>
                         <Card
-                            className="hover:shadow-lg transition-shadow duration-200 min-w-2xs max-w-2xs"
+                            className="hover:shadow-2xl transition-shadow duration-200 min-w-2xs max-w-2xs"
                             >
                             <CardHeader className="flex justify-between">
                                 <CardTitle className="text-lg truncate">{product.name}</CardTitle>

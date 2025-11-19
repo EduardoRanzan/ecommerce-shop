@@ -14,5 +14,11 @@ export const productService = {
         const products = await api.get(`${endPoint}/category/${id}`)
 
         return products.data;
-    }
+    },
+
+    async findProductById(id: string): Promise<ProductDTO> {
+        const product = await api.get(`${endPoint}/${id}`)
+
+        return product.data
+    },
 }

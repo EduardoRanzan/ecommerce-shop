@@ -19,8 +19,8 @@ export default function ListCategories () {
             }
             { !isLoading && categorias?.length && !error &&
                 <div>
-                    <Tabs defaultValue={categorias![0].name} className="flex flex-wrap">
-                        <TabsList className="flex flex-wrap gap-4 w-fit ml-auto shadow-md mb-4">
+                    <Tabs defaultValue={categorias![0].name} className="flex flex-wrap gap-4">
+                        <TabsList className="flex flex-wrap gap-4 w-fit ml-auto shadow-md">
                             {categorias?.map((category) => (
                                 <TabsTrigger key={category.name} value={category.name}>
                                     {category.name}

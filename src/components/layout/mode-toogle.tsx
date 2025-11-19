@@ -6,8 +6,6 @@ import { MoonIcon, SunIcon } from "lucide-react"
 export function ModeToggle() {
     const { theme, setTheme } = useTheme()
 
-    console.log(useTheme().theme)
-
     function onclick() {
         if (theme === 'dark') {
             setTheme('light')
@@ -17,7 +15,7 @@ export function ModeToggle() {
     }
 
     return (
-        <Button
+        <Button size="icon-sm"
         onClick={onclick}> 
             {
                 theme === 'light' &&
