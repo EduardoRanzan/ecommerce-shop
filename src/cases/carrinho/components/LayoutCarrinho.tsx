@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "../hooks/use-cart";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 export default function LayoutCarrinho() {
   const { cart, dispatch } = useCart();
@@ -15,6 +16,34 @@ export default function LayoutCarrinho() {
   function handleHome() {
     navigate("/")
   }
+
+  function handleRemove(id: string) { 
+    toast.custom((t) => (
+      <div className="bg-white rounded-md shadow-lg p-4 flex flex-col gap-3">
+        <p className="font-semibold">Remover item do carrinho?</p>
+        
+        <div className="flex justify-end gap-2">
+          <Button
+            variant="outline"
+            onClick={() => toast.dismiss(t)}
+          >
+            Cancelar
+          </Button>
+
+          <Button
+            onClick={() => {
+              dispatch({ type: "REMOVE", id })
+              toast.dismiss(t);
+              toast.success("Produto removido do carrinho!");
+            }}
+          >
+            Confirmar
+          </Button>
+        </div>
+      </div>
+    ));
+  }
+
 
   return (
     <div className="max-w-9/10 m-auto p-6">
@@ -42,10 +71,11 @@ export default function LayoutCarrinho() {
 
           <Button
             variant="destructive"
-            onClick={() => dispatch({ type: "REMOVE", id: item.id })}
-            >
+            onClick={() => handleRemove(item.id!)}
+          >
             Remover
           </Button>
+
         </div>
       ))}
 
