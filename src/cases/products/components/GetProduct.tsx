@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import Loading from "@/components/layout/Loading";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/cases/carrinho/hooks/use-cart";
+import { toast } from "sonner";
 
 export default function GetProduct() {
   const { id } = useParams<{ id: string }>();
@@ -14,15 +15,40 @@ export default function GetProduct() {
   const { dispatch } = useCart();
 
   function addToCart() {
-    dispatch({
-      type: "ADD",
-      item: {
-        id: product?.id,
-        name: product!.name,
-        price: product!.price,
-      }
-    });
-  }
+  toast.custom((t) => (
+    <div className="bg-white rounded-md shadow-lg p-4 flex flex-col gap-3">
+      <p className="font-semibold">Adicionar ao carrinho?</p>
+      
+      <div className="flex justify-end gap-2">
+        <Button
+          variant="outline"
+          onClick={() => toast.dismiss(t)}
+        >
+          Cancelar
+        </Button>
+
+        <Button
+          onClick={() => {
+            dispatch({
+              type: "ADD",
+              item: {
+                id: product?.id,
+                name: product!.name,
+                price: product!.price,
+              }
+            });
+
+            toast.dismiss(t);
+            toast.success("Produto adicionado ao carrinho!");
+          }}
+        >
+          Confirmar
+        </Button>
+      </div>
+    </div>
+  ));
+}
+
 
 
   if (isLoading) {

@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from "react";
-import { CartContext, type CartAction, type CartContextType, type CartItem, type CartProviderProps } from "../services/CartContext";
+import { CartContext, type CartAction, type CartContextType, type CartProviderProps } from "../services/CartContext";
+import type { CartItem } from "../DTOS/CartItem";
 
 const initialState: CartItem[] = (() => {
   try {

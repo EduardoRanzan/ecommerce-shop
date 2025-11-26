@@ -8,6 +8,7 @@ import Header from "@/components/layout/Header"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Route, Routes } from "react-router-dom"
+import { Toaster } from "sonner"
 
 function App() {
   const queryClient = new QueryClient()
@@ -15,28 +16,29 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-        <CartProvider>
+      <Toaster />
+        <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+          <CartProvider>
 
-          <Header />
+            <Header />
 
-          <Routes>
+            <Routes>
 
-            <Route path="/" element={<HomeInicial />} />
+              <Route path="/" element={<HomeInicial />} />
 
-            <Route path="/produto/:id" element={<GetProduct />}/>
+              <Route path="/produto/:id" element={<GetProduct />}/>
 
-            <Route path="/categoria/:id" element={<GetCategory />}/>
+              <Route path="/categoria/:id" element={<GetCategory />}/>
 
-            <Route path="/carrinho" element={<LayoutCarrinho />}/>
+              <Route path="/carrinho" element={<LayoutCarrinho />}/>
 
-          </Routes>
-          
-          <Footer />
-          
-        </CartProvider>
+            </Routes>
+            
+            <Footer />
+            
+          </CartProvider>
 
-      </ThemeProvider>
+        </ThemeProvider>
     </QueryClientProvider>
   )
 }

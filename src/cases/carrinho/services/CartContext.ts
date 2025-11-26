@@ -1,13 +1,6 @@
 import { createContext } from "react";
 import type { ReactNode } from "react";
-
-export interface CartItem {
-  id?: string;
-  name: string;
-  price: number;
-  image?: string;
-  quantity: number;
-}
+import type { CartItem } from "../DTOS/CartItem";
 
 export interface CartContextType {
   cart: CartItem[];
