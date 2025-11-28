@@ -1,12 +1,16 @@
 import { useMutation } from "@tanstack/react-query";
 import { AuthService } from "../services/auth.service";
-import { useAuth } from "./use-auth";
+import type { RegisterDto } from "../dtos/auth.dto";
 
 export function useSignUp() {
-    const { signIn } = useAuth();
+    const mutation = useMutation({
+        mutationFn: (data: RegisterDto) => AuthService.singUp(data)
+    });
 
-    return useMutation({
-        mutationFn: AuthService.singIn,
-        onSuccess: (data) => signIn(data)
-    })
+    return {
+        signUp: mutation.mutateAsync,
+        isPending: mutation.isPending,
+        error: mutation.error,
+        data: mutation.data
+    };
 }

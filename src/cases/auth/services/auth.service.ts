@@ -6,13 +6,13 @@ const endPonint = '/auth';
 export const AuthService = {
 
     async singUp (data: RegisterDto): Promise<UserResponseDto> {
-        const result = await api.post(`${endPonint}/singin`, data)
+        const result = await api.post(`${endPonint}/signup`, data)
 
         return result.data
     },
 
     async singIn (data: CredentialsDto): Promise<AuthResponseDto> {
-        const result = await api.post(`${endPonint}/singin`, data)
+        const result = await api.post(`${endPonint}/signin`, data)
 
         return result.data
     }
