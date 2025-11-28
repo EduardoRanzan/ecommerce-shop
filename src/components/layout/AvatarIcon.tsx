@@ -12,6 +12,7 @@ import {
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/cases/auth/hooks/use-auth";
+import { toast } from "sonner";
 
 
 
@@ -52,6 +53,7 @@ export default function AvatarIcon() {
           onClick={() => {
             signOut();
             navigate("/");
+            toast.success("Você saiu da sua conta com sucesso!");
           }}
         >
           Sair

@@ -9,16 +9,17 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useSignIn } from "../hooks/use-signIn";
+import { toast } from "sonner";
 
 export default function SignInForm() {
   const navigate = useNavigate();
 
   const { mutate, isPending, isError, error } = useSignIn(() => {
     navigate("/");
+    toast.success("Login realizado com sucesso!");
   });
 
   const [email, setEmail] = useState("");

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
@@ -23,7 +24,9 @@ export default function SignUpForm() {
 
     try {
       await signUp(form);
+      toast.success("Conta criada com sucesso!");
       navigate("/login");
+      
     } catch (err) {
       console.error(err);
     }
